@@ -27,4 +27,4 @@ mongoose.connect('mongodb://rootrpn:1a2b3c4d@cluster0-shard-00-00.bsvza.mongodb.
     })
 .catch(err => console.log(err));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
