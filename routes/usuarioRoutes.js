@@ -6,7 +6,7 @@ router.post('/usuario', async (req, res) => {
 
     const { nome, email, senha } = req.body;
     
-    if (!name) {
+    if (!nome || !email || !senha) {
         res.status(422).json({ error: 'Todos os dados precisam ser preenchidos'});
     }
     
