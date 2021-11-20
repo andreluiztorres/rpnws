@@ -1,22 +1,22 @@
 const router = require('express').Router();
-const Person = require('../models/person');
+const Usuario = require('../models/usuarios');
 
-// Create a new person
+// Cria Usuario
 router.post('/', async (req, res) => {
 
-    const { name, salary, approved } = req.body;
+    const { nome, email, senha } = req.body;
     
     if (!name) {
         res.status(422).json({ error: 'Todos os dados precisam ser preenchidos'});
     }
     
-    const person = { name, salary, approved };
+    const usuario = { nome, email, senha };
     
     try  {
     
-        await Person.create(person);
+        await Usuario.create(usuario);
     
-        res.status(201).json({ message: 'Pessoa criada com sucesso!' });
+        res.status(201).json({ message: 'Usuario criado com sucesso!' });
     }
        catch (error) {
     
@@ -25,28 +25,28 @@ router.post('/', async (req, res) => {
     }
     });
 
-    // Get all persons
+    // Buscar todos os Usuarios
 
     router.get('/', async (req, res) => {
             
             try {
-                const persons = await Person.find();
-                res.status(200).json(persons);
+                const usuarios = await Usuario.find();
+                res.status(200).json(usuarios);
             }
             catch (error) {
                 res.status(500).json({ error: error });
             }
     });
 
-    // Get a person by ID
+    // Buscar um usuaio por id
 
     router.get('/:id', async (req, res) => {
 
         const id = req.params.id;
 
         try {
-            const person = await Person.findOne({ _id: id });
-            res.status(200).json(person);
+            const usuario = await Usuario.findOne({ _id: id });
+            res.status(200).json(usuario);
         }
         catch (error) {
             res.status(500).json({ error: error });
