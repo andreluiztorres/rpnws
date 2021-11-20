@@ -3,10 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const personRoutes = require('./routes/personRoutes');
+const cors = require('cors');
 
 // ler Json / middleware
 app.use(express.urlencoded({ extended: true }));
 
+app.use(cors());
 app.use(express.json());
 
 // rotas API
