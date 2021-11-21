@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Usuario = require('../models/usuarios');
 
 // Cria Usuario
-router.post('/usuario', async (req, res) => {
+router.post('/usuario/cadastrar', async (req, res) => {
 
     const { nome, email, senha, nick } = req.body;
     
