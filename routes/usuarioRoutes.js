@@ -82,7 +82,23 @@ router.post('/usuario', async (req, res) => {
 
         try {
             const usuario = await Usuario.updateOne({_id: id }, usuario);
-            res.status(200).json(usuario);
+            res.status(200).json({ message: 'Usuario atualizado com sucesso!' });
+        }
+        catch (error) {
+            res.status(500).json({ error: error });
+        }
+
+    });
+
+    // Deletar um usuaio por id
+
+    router.delete('/usuario/:id', async (req, res) => {
+
+        const id = req.params.id;
+
+        try {
+            const usuario = await Usuario.findOne({ _id: id });
+            res.status(200).json({ message: 'Usuario deletado com sucesso!' });
         }
         catch (error) {
             res.status(500).json({ error: error });
