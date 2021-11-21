@@ -40,7 +40,7 @@ router.post('/usuario', async (req, res) => {
 
     // Buscar um usuaio por id
 
-    router.get('/usuario/id:id', async (req, res) => {
+    router.get('/usuario/id/:id', async (req, res) => {
 
         const id = req.params.id;
 
@@ -56,7 +56,7 @@ router.post('/usuario', async (req, res) => {
 
     // Buscar um usuaio por email
 
-    router.get('/usuario/nick:nick', async (req, res) => {
+    router.get('/usuario/nick/:nick', async (req, res) => {
 
         const nick = req.params.nick;
 
