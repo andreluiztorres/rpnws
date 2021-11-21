@@ -72,7 +72,7 @@ router.post('/usuario', async (req, res) => {
 
      // Atualizar Dados de um usuaio por id
 
-     router.patch('/usuario/:id', async (req, res) => {
+     router.patch('/usuario/delete/:id', async (req, res) => {
 
         const id = req.params.id;
 
