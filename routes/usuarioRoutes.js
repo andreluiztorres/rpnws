@@ -30,8 +30,8 @@ router.post('/usuario', async (req, res) => {
     router.get('/usuario', async (req, res) => {
             
             try {
-                const usuarios = await Usuario.find();
-                res.status(200).json(usuarios);
+                const usuario = await Usuario.find();
+                res.status(200).json(usuario);
             }
             catch (error) {
                 res.status(500).json({ error: error });
@@ -40,12 +40,28 @@ router.post('/usuario', async (req, res) => {
 
     // Buscar um usuaio por id
 
-    router.get('/:id', async (req, res) => {
+    router.get('/usuario/:id', async (req, res) => {
 
         const id = req.params.id;
 
         try {
             const usuario = await Usuario.findOne({ _id: id });
+            res.status(200).json(usuario);
+        }
+        catch (error) {
+            res.status(500).json({ error: error });
+        }
+
+    });
+
+    // Buscar um usuaio por email
+
+    router.get('/usuario/:email', async (req, res) => {
+
+        const id = req.params.id;
+
+        try {
+            const usuario = await Usuario.findOne({email: email });
             res.status(200).json(usuario);
         }
         catch (error) {
