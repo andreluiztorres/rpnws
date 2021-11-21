@@ -101,7 +101,7 @@ router.post('/usuario', async (req, res) => {
         }
 
         try {
-            const usuario = await Usuario.findOne({ _id: id });
+            await Usuario.deleteOne({ _id: id });
             res.status(200).json({ message: 'Usuario deletado com sucesso!' });
         }
         catch (error) {
