@@ -4,13 +4,13 @@ const Usuario = require('../models/usuarios');
 // Cria Usuario
 router.post('/usuario', async (req, res) => {
 
-    const { nome, email, senha } = req.body;
+    const { nome, email, senha, nick } = req.body;
     
-    if (!nome || !email || !senha) {
+    if (!nome || !email || !senha || !nick) {
         res.status(422).json({ error: 'Todos os dados precisam ser preenchidos'});
     }
     
-    const usuario = { nome, email, senha };
+    const usuario = { nome, email, senha, nick };
     
     try  {
     
@@ -56,12 +56,30 @@ router.post('/usuario', async (req, res) => {
 
     // Buscar um usuaio por email
 
-    router.get('/usuario/:email', async (req, res) => {
+    router.get('/usuario/:nick', async (req, res) => {
 
-        const email = req.params.email;
+        const nick = req.params.nick;
 
         try {
-            const usuario = await Usuario.findOne({email: email });
+            const usuario = await Usuario.findOne({nick: nick });
+            res.status(200).json(usuario);
+        }
+        catch (error) {
+            res.status(500).json({ error: error });
+        }
+
+    });
+
+     // Atualizar Dados de um usuaio por id
+
+     router.patch('/usuario/:id', async (req, res) => {
+
+        const id = req.params.id;
+
+        const usuario = { nome, email, senha, nick };
+
+        try {
+            const usuario = await Usuario.updateOne({_id: id }, usuario);
             res.status(200).json(usuario);
         }
         catch (error) {
