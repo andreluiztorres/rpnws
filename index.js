@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const salaRoutes = require('./routes/salaRoutes');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // rotas API
 app.use('/', usuarioRoutes);
+app.use('/', salaRoutes);
 // rota inicial
 app.get('/', (req, res) => {
 
