@@ -96,6 +96,10 @@ router.post('/usuario', async (req, res) => {
 
         const id = req.params.id;
 
+        if(!usuario) {
+            res.status(422).json({ error: 'Usuario não encontrado' });
+        }
+
         try {
             const usuario = await Usuario.findOne({ _id: id });
             res.status(200).json({ message: 'Usuario deletado com sucesso!' });
