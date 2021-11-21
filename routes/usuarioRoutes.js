@@ -58,7 +58,7 @@ router.post('/usuario', async (req, res) => {
 
     router.get('/usuario/:email', async (req, res) => {
 
-        const id = req.params.id;
+        const email = req.params.email;
 
         try {
             const usuario = await Usuario.findOne({email: email });
