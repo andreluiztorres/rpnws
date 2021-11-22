@@ -5,6 +5,7 @@ const app = express();
 const usuarioRoutes = require('./routes/usuarioRoutes');
 const salaRoutes = require('./routes/salaRoutes');
 const personagemRoutes = require('./routes/personagemRoutes');
+const chatRoutes = require('./routes/chatRoutes');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use('/', usuarioRoutes);
 app.use('/', salaRoutes);
 app.use('/', personagemRoutes);
+app.use('/', chatRoutes);
 // rota inicial
 app.get('/', (req, res) => {
 
