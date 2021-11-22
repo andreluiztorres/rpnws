@@ -4,9 +4,12 @@ const Chat = require('../models/chat');
 // Cria Chat
 router.post('/chat/cadastrar', async (req, res) => {
 
-    const { idsala, texto } = req.body;
+    idusuario: String,
+    const { idsala, texto, nomepers, datahora } = req.body;
+
+   
     
-    const chat = { nome, email, senha, nick };
+    const chat = { idsala, texto, nomepers, datahora };
     
     try  {
     
@@ -24,7 +27,7 @@ router.post('/chat/cadastrar', async (req, res) => {
   
     // Buscar Chat por idSala
 
-    router.get('/chat/id/:idsala', async (req, res) => {
+    router.get('/chat/idsala/:idsala', async (req, res) => {
 
         const id = req.params.idsala;
 
@@ -41,7 +44,7 @@ router.post('/chat/cadastrar', async (req, res) => {
   
     // Deletar um usuaio por id
 
-    router.delete('/chat/:id', async (req, res) => {
+    router.delete('/chat/deletar/:id', async (req, res) => {
 
         const id = req.params.id;
 
