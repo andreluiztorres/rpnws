@@ -31,7 +31,7 @@ router.post('/chat/cadastrar', async (req, res) => {
         const idsala = req.params.idsala;
 
         try {
-            const chat = await Chat.findOne({ idsala: idsala });
+            const chat = await Chat.find({ idsala: idsala });
             res.status(200).json(chat);
         }
         catch (error) {
