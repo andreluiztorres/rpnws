@@ -5,7 +5,7 @@ const Chat = mongoose.model('Chat', {
     texto: String,
     nomepers: String,
     idusuario: String,
-    datahora: Date,
+    datahora: String,
 });
 
 module.exports = Chat;

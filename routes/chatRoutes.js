@@ -4,12 +4,11 @@ const Chat = require('../models/chat');
 // Cria Chat
 router.post('/chat/cadastrar', async (req, res) => {
 
-    idusuario: String,
-    const { idsala, texto, nomepers, datahora } = req.body;
+    const { idsala, idusuario, texto, nomepers, datahora } = req.body;
 
    
     
-    const chat = { idsala, texto, nomepers, datahora };
+    const chat = {  idsala, idusuario, texto, nomepers, datahora };
     
     try  {
     
