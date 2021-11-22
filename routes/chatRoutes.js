@@ -28,7 +28,7 @@ router.post('/chat/cadastrar', async (req, res) => {
 
     router.get('/chat/idsala/:idsala', async (req, res) => {
 
-        const id = req.params.idsala;
+        const idsala = req.params.idsala;
 
         try {
             const chat = await Chat.findOne({ idsala: idsala });
