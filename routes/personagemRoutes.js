@@ -102,7 +102,7 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
      // Atualizar Dados de um usuaio por id
 
-     router.patch('/personagem/delete/:id', async (req, res) => {
+     router.patch('/personagem/alterar/:id', async (req, res) => {
 
         const id = req.params.id;
 
@@ -122,7 +122,7 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
     // Deletar um usuaio por id
 
-    router.delete('/personagem/:id', async (req, res) => {
+    router.delete('/personagem/deletar/:id', async (req, res) => {
 
         const id = req.params.id;
 
