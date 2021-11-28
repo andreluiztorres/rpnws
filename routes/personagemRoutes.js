@@ -106,9 +106,9 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
         const id = req.params.id;
 
-        const { nome, email, senha, nick } = req.body;
+        const { nome, classenivel, antecedente, raca, pontosxp, pontosatributo, forca, destreza, constituicao, inteligencia, sabedoria, carisma } = req.body;
 
-        const personagem = { nome, email, senha, nick };
+        const personagem = { nome, classenivel, antecedente, raca, pontosxp, pontosatributo, forca, destreza, constituicao, inteligencia, sabedoria, carisma };
 
         try {
             const personagem = await Personagem.updateOne({_id: id }, personagem);
