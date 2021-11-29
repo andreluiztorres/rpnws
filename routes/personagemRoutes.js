@@ -84,7 +84,7 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
     });
 
-    // Buscar um usuaio por email
+    // Buscar um usuaio por nickname
 
     router.get('/personagem/nick/:nick', async (req, res) => {
 
