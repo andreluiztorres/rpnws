@@ -88,10 +88,10 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
     router.get('/personagem/nick/:nick', async (req, res) => {
 
-        const nick = req.params.nick;
+        const iduser = req.params.iduser;
 
         try {
-            const personagem = await Personagem.findOne({nick: nick });
+            const personagem = await Personagem.find({iduser: iduser });
             res.status(200).json(personagem);
         }
         catch (error) {
