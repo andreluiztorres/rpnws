@@ -105,13 +105,10 @@ router.post('/personagem/cadastrar', async (req, res) => {
      router.patch('/personagem/alteraritem', async (req, res) => {
 
         const id = req.body._id;
-
-        const { nome, classenivel, antecedente, raca, pontosxp, pontosatributo, forca, destreza, constituicao, inteligencia, sabedoria, carisma } = req.body;
-
-        const personagem = { nome, classenivel, antecedente, raca, pontosxp, pontosatributo, forca, destreza, constituicao, inteligencia, sabedoria, carisma };
+        const body = req.body;        
 
         try {
-            const personagem = await Personagem.updateOne({_id: id }, personagem);
+            const personagem = await Personagem.updateOne({_id: id }, body);
             res.status(200).json({ message: 'Personagem atualizado com sucesso!' });
         }
         catch (error) {
