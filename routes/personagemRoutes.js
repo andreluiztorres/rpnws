@@ -102,9 +102,9 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
      // Atualizar Dados de um usuaio por id
 
-     router.patch('/personagem/alterar/:id', async (req, res) => {
+     router.patch('/personagem/alteraritem', async (req, res) => {
 
-        const id = req.params.id;
+        const id = req.body._id;
 
         const { nome, classenivel, antecedente, raca, pontosxp, pontosatributo, forca, destreza, constituicao, inteligencia, sabedoria, carisma } = req.body;
 
