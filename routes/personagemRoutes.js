@@ -70,12 +70,12 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
     // Buscar um Perssonagem  por id do Usuario Logado
 
-    router.get('/personagem/id/:id', async (req, res) => {
+    router.get('/personagem/id/:iduser', async (req, res) => {
 
-        const id = req.params.iduser;
+        const iduser = req.params.iduser;
 
         try {
-            const personagem = await Personagem.findOne({ iduser: id });
+            const personagem = await Personagem.findOne({ iduser: iduser });
             res.status(200).json(personagem);
         }
         catch (error) {
