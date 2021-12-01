@@ -88,10 +88,10 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
     router.get('/personagem/id/:id', async (req, res) => {
 
-        const id = req.params._id;
+        const id = req.params.idusuario;
 
         try {
-            const personagem = await Personagem.find({_id: id });
+            const personagem = await Personagem.find({idusuario: id });
             res.status(200).json(personagem);
         }
         catch (error) {
