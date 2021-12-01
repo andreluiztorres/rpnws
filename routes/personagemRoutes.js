@@ -86,12 +86,12 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
     // Buscar um usuaio por nickname
 
-    router.get('/personagem/nick/:nick', async (req, res) => {
+    router.get('/personagem/id/:id', async (req, res) => {
 
-        const nick = req.params.nick;
+        const id = req.params._id;
 
         try {
-            const personagem = await Personagem.find({nick: nick });
+            const personagem = await Personagem.find({_id: id });
             res.status(200).json(personagem);
         }
         catch (error) {
