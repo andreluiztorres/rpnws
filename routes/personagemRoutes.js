@@ -68,30 +68,14 @@ router.post('/personagem/cadastrar', async (req, res) => {
             }
     });
 
-    // Buscar um usuaio por id
-
-    router.get('/personagem/id/:id', async (req, res) => {
-
-        const id = req.params.id;
-
-        try {
-            const personagem = await Personagem.findOne({ _id: id });
-            res.status(200).json(personagem);
-        }
-        catch (error) {
-            res.status(500).json({ error: error });
-        }
-
-    });
-
-    // Buscar um usuaio por nickname
+    // Buscar um Perssonagem  por id do Usuario Logado
 
     router.get('/personagem/id/:id', async (req, res) => {
 
         const id = req.params.iduser;
 
         try {
-            const personagem = await Personagem.find({iduser: id });
+            const personagem = await Personagem.findOne({ iduser: id });
             res.status(200).json(personagem);
         }
         catch (error) {
@@ -100,6 +84,7 @@ router.post('/personagem/cadastrar', async (req, res) => {
 
     });
 
+  
      // Atualizar Dados de um usuaio por id
 
      router.patch('/personagem/alteraritem', async (req, res) => {
