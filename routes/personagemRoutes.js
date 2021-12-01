@@ -75,7 +75,7 @@ router.post('/personagem/cadastrar', async (req, res) => {
         const iduser = req.params.iduser;
 
         try {
-            const personagem = await Personagem.findOne({ iduser: iduser });
+            const personagem = await Personagem.find({ iduser: iduser });
             res.status(200).json(personagem);
         }
         catch (error) {
