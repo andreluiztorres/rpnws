@@ -9,10 +9,8 @@ const chatRoutes = require('./routes/chatRoutes');
 const cors = require('cors');
 require('dotenv').config();
 
-
 const LOGIN_DB = process.env.LOGIN_DB;
 const PSW_DB = process.env.PSW_DB;
-
 
 // ler Json / middleware
 app.use(express.urlencoded({ extended: true }));
